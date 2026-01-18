@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: diabetes-api
-        image: your-dockerhub-username/diabetes-api:latest
+        image: sumanprasad007/mlops-first-proj:v2
         ports:
         - containerPort: 8000
         imagePullPolicy: Always
@@ -28,8 +28,9 @@ metadata:
 spec:
   selector:
     app: diabetes-api
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8000
-  type: LoadBalancer
+      nodePort: 30000
